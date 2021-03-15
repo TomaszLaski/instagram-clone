@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { formatDistance } from 'date-fns';
 import { Link } from 'react-router-dom';
 import AddComment from './add-comment';
 
@@ -20,6 +21,9 @@ export default function Comments({ docId, comments: allComments, posted, comment
                     <span>{item.comment}</span>
                 </p>
             ))}
+            <p className="text-gray uppercase text-xs mt-2">
+                {formatDistance(posted, new Date())} ago
+            </p>
         </div>  
     );
 }
