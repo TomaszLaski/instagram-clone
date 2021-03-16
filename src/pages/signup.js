@@ -13,6 +13,7 @@ export default function SignUp() {
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
     
+
     const [error, setError] = useState('');
     const isInvalid = username === '' || fullName === '' || password === '' || emailAddress === '';
 
