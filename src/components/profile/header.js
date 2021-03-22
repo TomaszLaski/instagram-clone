@@ -53,6 +53,9 @@ export default function Header({
                         </>
                     )}
                 </div>
+                <div className="container mt-4">
+                    <p className="font-medium">{!fullName ? <Skeleton count={1} height={24} /> : fullName}</p>
+                </div>
             </div>
         </div>
     );
