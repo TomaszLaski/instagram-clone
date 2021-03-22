@@ -13,6 +13,13 @@ export default function Header({
     const [isFollowingProfile, setIsFollowingProfile] = useState(false);
     const activeBtnFollow = user.username && user.username !== username;
     
+    const handleToggleFollow = async () => {
+        setIsFollowingProfile((isFollowingProfile) => !isFollowingProfile);
+        setFollowerCount({ 
+            followerCount: isFollowingProfile ? followerCount - 1 : followerCount + 1 
+        });
+    }
+    
     return (
         <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
             <div className="container flex justify-center">
@@ -29,7 +36,7 @@ export default function Header({
                         <button
                             className="bg-blue-500 font-bold text-sm rounded text-white w-20 h-8"
                             type="button"
-                            onClick={() => console.log('I am a button')}   
+                            onClick={handleToggleFollow}   
                         >
                             {isFollowingProfile ? 'Unfollow' : 'Follow'}
                         </button>

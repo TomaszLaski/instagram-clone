@@ -6,7 +6,7 @@ import { getUserByUsername, getUserPhotosByUsername } from '../../services/fireb
 const reducer = (state, newState) => ({ ...state, ...newState });
 const initialState = {
     profile: {},
-    photosCollection: [],
+    photosCollection: null,
     followerCount: 0
 };
 
@@ -33,6 +33,7 @@ export default function Profile({ username }) {
                 profile={profile}
                 followerCount={followerCount}
                 setFollowerCount={dispatch}
+                username={username}
             />
             <Photos photos={photosCollection} />
         </>
