@@ -13,7 +13,6 @@ export default function SignUp() {
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
     
-
     const [error, setError] = useState('');
     const isInvalid = username === '' || fullName === '' || password === '' || emailAddress === '';
 
@@ -26,7 +25,7 @@ export default function SignUp() {
                 const createdUserResult = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password);
                 
                 await createdUserResult.user.updateProfile({
-                    displayName: username                    
+                    displayName: username
                 });
                 
                 await firebase.firestore().collection('users').add({
@@ -35,6 +34,7 @@ export default function SignUp() {
                     fullName,
                     emailAddress: emailAddress.toLowerCase(),
                     following: [],
+                    followers: [],
                     dateCreated: Date.now()
                 });
                 
